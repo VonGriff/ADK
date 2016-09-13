@@ -25,7 +25,6 @@ public class Builder {
     // Ska ta ett ord och index för var det börjar och hasha
     // de tre första bokstäverna
     private static void hash(String s, int index) {
-	// TODO
 	char[] c = s.toCharArray();
 	int size = c.length;
 	int hash = 0;
