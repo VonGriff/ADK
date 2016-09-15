@@ -6,9 +6,13 @@ import java.io.RandomAccessFile;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
+// TODO: the sorted list, 
+
 public class Builder {
 
     private static RandomAccessFile korpus;
+    private static RandomAccessFile sorteradLista;
+    private static RandomAccessFile hashLista;
     private static int[] lazyHash = new int[28000];
     
     public Builder() throws IOException, FileNotFoundException {
@@ -20,6 +24,7 @@ public class Builder {
 	long i = 2;
 	Builder b = new Builder();
 	korpus = new RandomAccessFile("korpus", "rw");
+	sorteradLista = new RandomAccessFile();
     }
 
     // Ska ta ett ord och index för var det börjar och hasha
@@ -39,5 +44,12 @@ public class Builder {
 	    hash = c[0]*900 + c[1]*30 + c[2];
 	}
 	lazyHash[hash] = index;
+    }
+    private static String[][] sort(String[] s) {
+	String[][] delad;
+	for(int i = 0; i < s.length; i++){
+	    delad[i] = s[i].split("\\s");
+	}
+	
     }
 }
